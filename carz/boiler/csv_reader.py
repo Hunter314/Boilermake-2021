@@ -66,14 +66,11 @@ def read(df):
     ]
 
     Car.objects.bulk_create(objs)
-def read_all():
-    clear()
-    read(read_all_csvs())
-    read(read_all_xlsx())
+
 def read_all_csvs():
     all_dfs = []
     #for i in range(1,2):
-    for i in range (1, 17):
+    for i in range (1, 18):
         # print(i)
         #this_csv = pd.read_csv(open(os.path.join(workpath, "/boiler/csvs/year" + str(i) + ".csv"), 'rb'))
         this_csv = pd.read_csv("./boiler/csvs/year" + str(i) + ".csv")
@@ -112,7 +109,7 @@ def select_pandas(df):
 
 def read_all_xlsx():
     all_dfs = []
-    for i in range(17, 21):
+    for i in range(18, 22):
         try:
             this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xlsx", engine="openpyxl")
         except InvalidFileException:
@@ -160,6 +157,12 @@ def append_to_pandas(df, all_dfs):
     new = df[select_cols].copy()
     all_dfs.append(new)
     return new
+
+
+def read_all():
+    clear()
+    read(read_all_csvs())
+    read(read_all_xlsx())
 
 
 def clean_df(df):

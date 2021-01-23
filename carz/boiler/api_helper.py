@@ -33,3 +33,11 @@ def process(license):
             return {"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])}
         else:
             return False
+
+def upload(img):
+    url = f"http://api.carsxe.com/whatcaristhat?key=0hsbdq9rl_o6thqm9v5_bv25wj6aa"
+    r = requests.post(url,headers = {'Content-type': 'text/plain'},data="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2006-2009_Honda_Civic_VTi_sedan_%282018-10-19%29_01.jpg/800px-2006-2009_Honda_Civic_VTi_sedan_%282018-10-19%29_01.jpg")
+    if r.status_code == 200:
+        print(r.json())
+    else:
+        print(r.status_code)

@@ -27,7 +27,8 @@ def read_all_csvs():
         # print(this_csv.head())
         append_to_pandas(this_csv)
     result = pd.concat(all_dfs)
-    print(result)
+    # print(result)
+    return(result)
 def select_pandas(df):
 
 # CO (g/mi)
@@ -82,4 +83,4 @@ def append_to_pandas(df):
     return new
 
 
-read_all_csvs()
+#read_all_csvs()

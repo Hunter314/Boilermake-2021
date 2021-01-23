@@ -1,0 +1,35 @@
+ 
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+    .navbar {
+        height:100px;
+        background-color:white;
+        width: 100%;
+        box-shadow: 0px 1px 5px #6A15BF;
+    }
+    .flex-row{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .logo {
+        max-height:50px;
+    }
+    .font {
+        font: normal normal normal 25px Rockwell;
+        text-align: left;
+        font: normal normal normal 25px Rockwell;
+        text-decoration: none;
+        letter-spacing: 0px;
+        color: #6F2B6F;
+    }
+    .font:hover {
+        text-decoration: underline;
+    }
+    .links {
+        width:50%;
+        
+    }

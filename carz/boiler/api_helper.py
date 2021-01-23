@@ -2,6 +2,7 @@ from django.http import JsonResponse
 import requests
 from bs4 import BeautifulSoup
 from time import sleep
+
 def status(status,payload):
     return JsonResponse({"status":status,"payload":payload})
 
@@ -30,6 +31,7 @@ def process(license):
     #     lister.append(item)
         json = r.json()
         if json['success']:
+            print({"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])})
             return {"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])}
         else:
             return False

@@ -66,7 +66,10 @@ def read(df):
     ]
 
     Car.objects.bulk_create(objs)
-
+def read_all():
+    clear()
+    read(read_all_csvs())
+    read(read_all_xlsx())
 def read_all_csvs():
     all_dfs = []
     #for i in range(1,2):

@@ -13,7 +13,7 @@ from rest_framework import serializers
 #     class Meta:
 #         model = Forms
 #         fields = ['id','name','description','pay','weekly_hours','tagline','category','requirements','questions','published']
-class CarSerializer(serializer.ModelSerializer):
+class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields = ['make','model','year','co2','n2o','co']
+        fields = ['make','car_model','year','co2','n2o','co']

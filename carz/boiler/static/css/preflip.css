@@ -1,0 +1,78 @@
+
+    .back-img {
+        position:absolute;
+        z-index: -1;
+        height:100%;
+        width:100%;
+    }
+    .main {
+        position: relative;
+        background-color:rgba(0,0,0,.62);
+        min-height:1000px;
+    }
+    .header {
+        font: normal normal normal 50px Rockwell;
+        color: #ffffff;
+    }
+    .text {
+        position: absolute;
+        z-index:1;
+        width:100%;
+        height:700px;
+        padding-top:100px;
+    }
+    .flex-column {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input {
+        width:45%;
+        padding-top: 30px;
+    }
+    .input-head {
+        font: normal normal normal 20px Rockwell;
+        color: #F7F7F7;
+        padding-bottom:10px;
+    }
+    .flex-rower {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .input-head.error {
+        color: red;
+    }
+    .text-field {
+        background: #F0F0F0 0% 0% no-repeat padding-box;
+        border: 4px solid #862093;
+        border-radius: 10px;
+        height:50px;
+        width:55%;
+    }
+    .select-field {
+        width: 35%;
+        border-radius:10px;
+        border: 4px solid #862093;
+        padding-left:4px;
+    }
+    .button {
+        background: #6F1EA2 0% 0% no-repeat padding-box;
+        border-radius: 20px;
+        padding:15px 40px 15px 40px;
+        font: normal normal normal 30px/37px Montserrat;
+        letter-spacing: 0px;
+        margin-top:20px;
+        border:none;
+        color: #FFFFFF;
+    }
+    .input-place {
+        font: normal normal normal 25px Rockwell;
+        color: #696464;
+        text-align: center;
+    }
+    .sub {
+        padding-top:25px;
+        font: normal normal normal 30px Montserrat;
+        color: #FFFFFF;
+    }

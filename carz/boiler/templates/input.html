@@ -3,85 +3,73 @@
 {%block title%}
 Try it Out
 {%endblock%}
+
 {%block head%}
+<link rel = "stylesheet" href = "/static/css/preflip.css?v=1.00">
 <style>
-    .back-img {
-        position:absolute;
-        z-index: -1;
-        height:100%;
-        width:100%;
+    .main.short {
+        min-height:600px;
     }
-    .main {
-        position: relative;
-        background-color:rgba(0,0,0,.62);
-        min-height:1000px;
+    .dumbcss {
+        font: normal normal normal 25px Montserrat;
+        color: #FFFFFF;
     }
-    .header {
-        font: normal normal normal 50px Rockwell;
-        color: #ffffff;
+    .back-img.noice {
+        min-height:600px;
     }
-    .text {
-        position: absolute;
-        z-index:1;
-        width:100%;
-        height:700px;
-        padding-top:100px;
-    }
-    .flex-column {
-        display:flex;
+    .smh {
+        display: flex;
         flex-direction: column;
+        justify-content: space-around;
+        height:100%;
+    }
+    .texter {
+        width:50%;
+        height:80%;
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: space-around;
+        padding-top:0px;
+    }
+    .grams {
+        font: normal normal normal 100px/140px Rockwell;
+        color: #FFFFFF;
+        text-align:center;
+    }
+    .scale {
+        font: normal normal normal 40px Montserrat;
+        color: #FFFFFF;
+    }
+    .sub-subj {
+        min-height:400px;
+        z-index:-1;
+        width:100%;
+        display: flex;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-around;
         align-items: center;
     }
-    .input {
-        width:45%;
-        padding-top: 30px;
-    }
-    .input-head {
-        font: normal normal normal 20px Rockwell;
-        color: #F7F7F7;
-        padding-bottom:10px;
-    }
-    .flex-rower {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .input-head.error {
-        color: red;
-    }
-    .text-field {
-        background: #F0F0F0 0% 0% no-repeat padding-box;
-        border: 4px solid #862093;
-        border-radius: 10px;
-        height:50px;
-        width:55%;
-    }
-    .select-field {
-        width: 35%;
-        border-radius:10px;
-        border: 4px solid #862093;
-        padding-left:4px;
-    }
-    .button {
-        background: #6F1EA2 0% 0% no-repeat padding-box;
-        border-radius: 20px;
-        padding:15px 40px 15px 40px;
-        font: normal normal normal 30px/37px Montserrat;
-        letter-spacing: 0px;
-        margin-top:20px;
-        border:none;
-        color: #FFFFFF;
-    }
-    .input-place {
-        font: normal normal normal 25px Rockwell;
-        color: #696464;
+    .co2 {
+        font: normal normal normal 60px/80px Rockwell;
+        color: #6F2B6F;
         text-align: center;
     }
-    .sub {
-        padding-top:25px;
-        font: normal normal normal 30px Montserrat;
-        color: #FFFFFF;
+    .data-value {
+        font: normal normal normal 70px/80px Rockwell;
+        letter-spacing: 0px;
+        color: #000000;
+    } 
+    .javadasub {
+        font: normal normal normal 35px/49px Montserrat;
+        letter-spacing: 0px;
+        color: #000000;
     }
+    .not-epic {
+        height:200px;;
+    }
+
 </style>
 {%endblock%}
 

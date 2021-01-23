@@ -29,14 +29,15 @@ class Data(models.Model):
         if not value:
             return False
         data = Data.objects.get(name=field)
+        path = "/static/images/"
         if value < data.iq1:
-            return 0
+            return path + "wink.png"
         if value < data.median:
-            return .33
+            return path + "meh.png"
         if value < data.iq3:
-            return .67
+            return path + "sad.png"
         else:
-            return 1
+            return path + "poop.png"
     #process data from cars
     def process():
         Data.process_data("co2")

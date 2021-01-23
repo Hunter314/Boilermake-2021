@@ -7,13 +7,16 @@ from .models import Car
 # from models import Car
 import csv
 import pandas as pd
+from pandas import ExcelWriter
+from pandas import ExcelFile
+
 # 'CMYT_CO_FE_MSR', 'CMYT_CO2_FE_MSR', 'CMYT_NOX_MSR'
 co2_titles = ["CO2 (g/mi)", "CMYT_CO2_FE_MSR"]
 co_titles = ["CO (g/mi)", "CMYT_CO_FE_MSR"]
 nox_titles = ["NOx (g/mi)", "CMYT_NOX_MSR"]
 year_titles = ["Model Year", "MDLYR_DT"]
-model_titles = ["Represented Test Veh Model", "VI_MFR_CD", "VI_MFR_NM"]
-make_titles = ["Represented Test Veh Make", "CL_NM"]
+model_titles = ["Represented Test Veh Model", "CL_NM"]
+make_titles = ["Represented Test Veh Make", "VI_MFR_NM"]
 all_titles = {"year": year_titles,
               "model": model_titles,
               "make": make_titles,
@@ -22,7 +25,10 @@ all_titles = {"year": year_titles,
               "nox": nox_titles,
               }
 # List of all separate dfs to concatenate
-all_dfs = []
+
+def clear():
+    Car.objects.all().delete()
+
 
 def read(df):
     # df is an input dataframe
@@ -59,14 +65,16 @@ def read(df):
     Car.objects.bulk_create(objs)
 
 def read_all_csvs():
+    all_dfs = []
     #for i in range(1,2):
     for i in range (1, 17):
         # print(i)
         #this_csv = pd.read_csv(open(os.path.join(workpath, "/boiler/csvs/year" + str(i) + ".csv"), 'rb'))
         this_csv = pd.read_csv("./boiler/csvs/year" + str(i) + ".csv")
         # print(this_csv.head())
-        append_to_pandas(this_csv)
-
+        append_to_pandas(this_csv, all_dfs)
+        print(all_dfs)
+    print("Now concatenating!")
     result = pd.concat(all_dfs)
     # print(result)
     return(result)
@@ -83,7 +91,7 @@ def select_pandas(df):
         for title in all_titles[category]:
 
             print(title)
-            if title in df.columns:
+            if title in df.columns and found == False:
                 # print(str(df.columns.get_loc(title)))
                 col_names.append(title)
                 found = True
@@ -97,21 +105,26 @@ def select_pandas(df):
     return new
 
 def read_all_xlsx():
+    all_dfs = []
     for i in range(17, 21):
 
-        this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xlsx")
+        this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xls")
 
         # print(i)
         # this_csv = pd.read_csv(open(os.path.join(workpath, "/boiler/csvs/year" + str(i) + ".csv"), 'rb'))
         # print(this_csv.head())
-        append_to_pandas(this_xlsx)
+        append_to_pandas(this_xlsx, all_dfs)
 
-    result = pd.concat(all_dfs)
+    try:
+        result = pd.concat(all_dfs)
+    except ValueError:
+        for frame in all_dfs:
+            print(frame.shape)
     # print(result)
     return (result)
 
 
-def append_to_pandas(df):
+def append_to_pandas(df, all_dfs):
 # CO (g/mi)
     select_cols = []
     for category in all_titles:

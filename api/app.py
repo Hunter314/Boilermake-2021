@@ -1,5 +1,6 @@
 from flask import Flask,jsonify,request
 import time
+import os
 import base64
 app = Flask(__name__)
 
@@ -12,9 +13,10 @@ def status(status, payload):
 def api():
     #determines if required field is there
     if request.form['image']:
-        image_path = f"./pics/{time.time()}.png"
+        cwd = os.getcwd()
+        image_path = f"{cwd}/pics/{time.time()}"
         #writes image to dummy path
-        with open(f"./pics/{time.time()}.png","wb") as f:
+        with open(f"./pics/{time.time()}","wb") as f:
             f.write(base64.b64decode(request.form['image']))
         #passes image path to image processor
         data = func(image_path)

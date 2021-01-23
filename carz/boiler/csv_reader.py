@@ -16,16 +16,18 @@ all_titles = {"year": year_titles,
               "co": co_titles,
               "nox": nox_titles,
               }
+# List of all separate dfs to concatenate
+all_dfs = []
 
 def read_all_csvs():
     #for i in range(1,2):
     for i in range (1, 17):
-        print(i)
+        # print(i)
         this_csv = pd.read_csv("./csvs/year" + str(i) + ".csv")
         # print(this_csv.head())
-        select_pandas(this_csv)
-
-
+        append_to_pandas(this_csv)
+    result = pd.concat(all_dfs)
+    print(result)
 def select_pandas(df):
 
 # CO (g/mi)
@@ -56,13 +58,13 @@ def append_to_pandas(df):
 # CO (g/mi)
     select_cols = []
     for category in all_titles:
-        print("Current category:" + category)
+        #print("Current category:" + category)
         found = False
         # Append the first title, which is the preferred title for large dataframe
         select_cols.append(all_titles[category][0])
         for title in all_titles[category]:
 
-            print(title)
+            #print(title)
             if title in df.columns:
                 # print(str(df.columns.get_loc(title)))
                 # col_names.append(title)
@@ -76,9 +78,8 @@ def append_to_pandas(df):
             print(list(df.columns))
 
     new = df[select_cols].copy()
+    all_dfs.append(new)
     return new
-# CO2 (g/mi)
-# NOx (g/mi)
 
 
 read_all_csvs()

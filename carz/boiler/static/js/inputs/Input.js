@@ -13,7 +13,8 @@ class Input extends React.Component {
     //changer function that calls passed in changer
     changer(e) {
         let value = e.target.value
-        this.changer(value)
+        this.state.changer(value)
+
     }
     componentDidUpdate(oldProp) {
         if (this.props.value != oldProp.value) {

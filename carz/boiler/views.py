@@ -25,12 +25,14 @@ def serve(html):
 def api_license(request):
     #check if it is a post request
     if request.method == "POST":
-        #determines if user entered license plate
-        lice = request.POST['license']
-        if not lice:
-            return status(False,"missing required field")
+        #determines if user entered license plate and state
+        try:
+            lice = request.POST['license']
+            state = request.POST['state']
+        except:
+            return status(False,"missing required field")   
         #determines if license plate exists
-        data = process(lice)
+        data = process(lice,state)
         if not data:
             return status(False,"license plate not found")
         #search database for car

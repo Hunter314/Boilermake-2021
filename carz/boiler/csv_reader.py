@@ -157,3 +157,8 @@ def append_to_pandas(df, all_dfs):
     new = df[select_cols].copy()
     all_dfs.append(new)
     return new
+
+
+def clean_df(df):
+    # removes missing values and copies of make/model/year in database
+    new = df

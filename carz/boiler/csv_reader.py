@@ -1,9 +1,12 @@
 from django.conf import settings
 import os
+
+from openpyxl.utils.exceptions import InvalidFileException
+
 workpath = os.path.dirname(os.path.abspath(__file__))
 from django.core.management.base import BaseCommand
 from .models import Car
-
+import openpyxl
 # from models import Car
 import csv
 import pandas as pd
@@ -107,9 +110,10 @@ def select_pandas(df):
 def read_all_xlsx():
     all_dfs = []
     for i in range(17, 21):
-
-        this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xls")
-
+        try:
+            this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xlsx", engine="openpyxl")
+        except InvalidFileException:
+            this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xlsx")
         # print(i)
         # this_csv = pd.read_csv(open(os.path.join(workpath, "/boiler/csvs/year" + str(i) + ".csv"), 'rb'))
         # print(this_csv.head())

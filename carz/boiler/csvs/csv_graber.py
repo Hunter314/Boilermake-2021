@@ -9,8 +9,5 @@ def main():
                 f.write(r.text)
 
 
-
-
-
 if __name__ == "__main__":
     main()

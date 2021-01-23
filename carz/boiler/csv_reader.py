@@ -12,8 +12,8 @@ co2_titles = ["CO2 (g/mi)", "CMYT_CO2_FE_MSR"]
 co_titles = ["CO (g/mi)", "CMYT_CO_FE_MSR"]
 nox_titles = ["NOx (g/mi)", "CMYT_NOX_MSR"]
 year_titles = ["Model Year", "MDLYR_DT"]
-model_titles = ["Represented Test Veh Make", "CL_NM"]
-make_titles = ["Represented Test Veh Model", "VI_MFR_CD"]
+model_titles = ["Represented Test Veh Model", "VI_MFR_CD", "VI_MFR_NM"]
+make_titles = ["Represented Test Veh Make", "CL_NM"]
 all_titles = {"year": year_titles,
               "model": model_titles,
               "make": make_titles,
@@ -24,14 +24,16 @@ all_titles = {"year": year_titles,
 # List of all separate dfs to concatenate
 all_dfs = []
 
-def read():
-
+def read(df):
+    # df is an input dataframe
+    # for all csv's, replace df with read_all_csvs()
+    # for all xlsx, replace df with read_all_xlsx()
 
     #print(read_all_csvs())
 
     # test
     #row_iter = csv_reader.read_all_csvs().iterrows()
-    row_iter = read_all_csvs().iterrows()
+    row_iter = df.iterrows()
 
     objs = [
 
@@ -64,9 +66,11 @@ def read_all_csvs():
         this_csv = pd.read_csv("./boiler/csvs/year" + str(i) + ".csv")
         # print(this_csv.head())
         append_to_pandas(this_csv)
+
     result = pd.concat(all_dfs)
     # print(result)
     return(result)
+
 def select_pandas(df):
 
 # CO (g/mi)
@@ -91,6 +95,20 @@ def select_pandas(df):
 
     new = df[col_names].copy()
     return new
+
+def read_all_xlsx():
+    for i in range(17, 21):
+
+        this_xlsx = pd.read_excel("./boiler/csvs/year" + str(i) + ".xlsx")
+
+        # print(i)
+        # this_csv = pd.read_csv(open(os.path.join(workpath, "/boiler/csvs/year" + str(i) + ".csv"), 'rb'))
+        # print(this_csv.head())
+        append_to_pandas(this_xlsx)
+
+    result = pd.concat(all_dfs)
+    # print(result)
+    return (result)
 
 
 def append_to_pandas(df):

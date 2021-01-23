@@ -1,8 +1,8 @@
 from django.db import models
-from . import csv_reader
+#from . import csv_reader
 # Create your models here.
 class Car(models.Model):
-    model = models.TextField(default = "")
+    car_model = models.TextField(default = "")
     make = models.TextField(default = "")
     year = models.IntegerField(default = 0)
     #carbon dioxide
@@ -12,3 +12,4 @@ class Car(models.Model):
     #nitrous oxide
     n2o = models.FloatField(null = True,default = None)
 
+import pandas as pd

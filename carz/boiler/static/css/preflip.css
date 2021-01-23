@@ -66,6 +66,9 @@
         border:none;
         color: #FFFFFF;
     }
+    .button:hover {
+
+    }
     .input-place {
         font: normal normal normal 25px Rockwell;
         color: #696464;

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Licence Plate Checking...
+  </title>
+  <meta content="noindex, follow" name="robots"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="/media/ico/favicon-32.png" rel="icon" type="image/png"/>
+  <link href="/media/ico/favicon-32.png" rel="shortcut" type="image/png"/>
+  <link href="/media/ico/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/media/ico/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/media/ico/favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
+  <link href="/media/ico/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="//www.faxvin.com/media/css/icons.css" rel="stylesheet" type="text/css">
+   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;display=swap" rel="stylesheet" type="text/css"/>
+   <script src="/media/jquery/2.1.4/jquery.js">
+   </script>
+   <script src="/media/js/order/jquery.progressTimer.min.js">
+   </script>
+   <meta content="en_US" property="og:locale">
+    <meta content="FAXVIN" property="og:site_name">
+     <meta content="summary" name="twitter:card">
+      <meta content="@faxvin" name="twitter:site">
+       <style type="text/css">
+        html, body { margin: 0px; padding: 0px; border: 0px; width: 100%; height: 100%; } body { background-color: #f2f2f2; font-family: 'Open Sans', sans-serif; font-size: 12px; color: #333; } form, p, h1, h2, h3, h4, h5, h6 { border: 0px; padding: 0px; margin: 0px; } img { border: 0px; } /* a {color: #0086c9; text-decoration: none;} */ a { color: #0075af; text-decoration: none; } a:hover { text-decoration: underline; } #hid-button { display: none; cursor: pointer; } .tooltip { position: relative; display: inline-block; } .tooltip .tooltiptext { visibility: hidden; width: 180px; background-color: #333; border-radius: 4px; padding: 6px 10px; position: absolute; top: 130%; margin-left: -90px; z-index: 10; text-align: left; font-family: 'Open Sans', sans-serif; font-size: 13px; font-weight: 400; color: #ddd; line-height: 1.5; } .tooltip .tooltiptext::after { content: " "; position: absolute; bottom: 100%; /* At the top of the tooltip */ left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent black transparent; } .tooltip:hover .tooltiptext { visibility: visible; } .head { background-color: #303030; } .head .mainnav { width: 960px; margin: auto; } .head .mainnav ul { padding: 0px; margin: 0px; } .head .mainnav ul li { display: inline-block; font-family: 'Open Sans', sans-serif; font-size: 14px; font-weight: 400; transition: 0.1s; -webkit-font-smoothing: antialiased; } .head .mainnav ul li:hover { opacity: 0.7; } .head .mainnav ul li a { color: #fff; padding: 12px 10px 12px 10px; display: block; } .head .mainnav ul li a:hover { text-decoration: none; } .head .mainnav .menuicon { display: none; padding: 7px 0px 10px 0px; } .head .mainnav .home { width: 100px; } .head .mainnav .home svg { position: absolute; top: 4px; padding: 8px 20px 8px 5px; } .head .mainnav .order { width: 145px; } .head .mainnav .decoder { width: 155px; } .head .mainnav .sample { width: 160px; } .head .mainnav .help { width: 95px; } .head .mainnav .contact { width: 140px; } .head .mainnav .login, .head .mainnav .account { text-align: right; width: 140px; } .head .mainnav .login svg, .head .mainnav .account svg { position: absolute; margin-top: 2px; margin-left: -22px; } .headbox { background-color: #ffffff; } .headbox .box { width: 960px; margin: auto; padding: 20px 0px 20px 0px; } .headbox .box .logo { width: 40%; display: inline; text-align: left; margin-left: 10px; } .headbox .box .right { float: right; margin-right: 5px; } .headbox .box .right h1 { font-size: 30px; font-weight: 300; word-spacing: 3px; letter-spacing: -0.3px; } .headbox .box .right h2 { font-size: 30px; font-weight: 300; word-spacing: 3px; letter-spacing: -0.3px; } .headbox .box .right p { font-size: 30px; font-weight: 300; word-spacing: 3px; letter-spacing: -0.3px; color: #888; } .headbox .line { border-bottom: 1px solid #f0f0f0; } .foot { padding: 30px 0px 30px 0px; } .foot .nav { width: 960px; margin: auto; } .foot .nav .column-a, .column-b, .column-c, .column-d, .column-e { display: inline-block; font-size: 12px; color: #333; line-height: 2.0; vertical-align: top; text-align: left; } .foot .nav .column-a { width: 140px; } .foot .nav .column-b { width: 170px; } .foot .nav .column-c { width: 183px; } .foot .nav .column-d { width: 204px; } .foot .nav .column-e { width: 250px; text-align: right; } .foot .nav .column-e .ssl { display: inline-block; vertical-align: top; } .foot .nav .column-e .rating { display: inline-block; vertical-align: top; margin: 15px 0px 0px 15px; width: 130px; } .foot .nav .column-e .payments { width: 100%; background-color: #ececec; padding: 10px 0px 8px 0px; margin-top: 0px; text-align: center; opacity: 0.8; -moz-opacity: 0.8; -khtml-opacity: 0.8; filter: alpha(opacity=80) black; } .foot .nav .column-e .payments svg { padding: 2px 2px; } .foot .nav .column-e .payments:hover { opacity: 1; -moz-opacity: 1; -khtml-opacity: 1; filter: alpha(opacity=100) black; } .foot .nav .column-e .payments .logos {} .foot .nav .column-e .payments .ssl {} .foot .nav .column-e .payments .ssl a:focus { outline: none; } .foot .nav .column-e .payments .ssl img { margin-top: 5px; height: 35px; } .foot .nav .column-e .social { width: 100%; background-color: #ececec; padding: 15px 0px 8px 0px; margin-top: 0px; text-align: center; } .foot .nav .column-e .social ul { list-style-type: none; } .foot .nav .column-e .social ul li { display: inline-block; margin-left: 5px; } .foot .nav .column-e .social ul li a:hover { text-decoration: none; } .foot .nav .column-e .social ul li svg { opacity: 0.8; -moz-opacity: 0.8; -khtml-opacity: 0.8; filter: alpha(opacity=80) black; } .foot .nav .column-e .social ul li svg:hover { opacity: 1; -moz-opacity: 1; -khtml-opacity: 1; filter: alpha(opacity=100) black; } .foot .nav b { font-size: 13px; font-weight: 600; -webkit-font-smoothing: antialiased; } .foot .nav ul { padding: 0px; margin: 0px; } .foot .nav ul li { list-style: none; -webkit-font-smoothing: antialiased; } .foot .nav ul .s { margin-top: 23px; } .foot .nav a { text-decoration: none; color: #666; } .foot .nav a:hover { text-decoration: underline; color: #333; } .foot .disclaimer { width: 960px; margin: auto; padding-bottom: 8px; padding-top: 25px; } .foot .disclaimer p { font-size: 12px; color: #999; letter-spacing: -0.1px; -webkit-font-smoothing: antialiased; } .foot .line { width: 960px; border-bottom: 1px solid #e3e3e3; margin: auto; } .foot .legal { width: 960px; margin: auto; padding-top: 8px; } .foot .legal .copyright p { font-size: 12px; color: #666; -webkit-font-smoothing: antialiased; } .foot .legal .links { float: right; text-align: right; } .foot .legal .links a { font-size: 11px; color: #666; -webkit-font-smoothing: antialiased; } .foot .legal .links a:hover { text-decoration: none; color: #333; } @media screen and (max-width: 980px) { .head .mainnav { width: 100%; height: 100%; } .head .mainnav .home { width: 60px; } .head .mainnav .order { width: 110px; } .head .mainnav .decoder { width: 125px; } .head .mainnav .sample { width: 130px; } .head .mainnav .help { width: 75px; } .head .mainnav .contact { display: none; } .head .mainnav .login, .head .mainnav .account { position: absolute; right: 10px; top: 0px; } .headbox .box { width: 100%; } .foot { padding: 20px 0px 30px 0px; } .foot .nav { width: 90%; text-align: left; } .foot .nav .column-a { width: 30%; padding-bottom: 20px; } .foot .nav .column-b { width: 30%; padding-bottom: 20px; } .foot .nav .column-c { width: 30%; padding-bottom: 20px; } .foot .nav .column-d { width: 170px; padding-bottom: 20px; } .foot .nav .column-e { width: 320px; margin-left: 30px; text-align: center; } .foot .nav .column-e .rating { display: none; } .foot .nav .column-e .social { padding-top: 0px; } .foot .disclaimer { width: 90%; margin: auto; padding-bottom: 8px; padding-top: 25px; } .foot .disclaimer p { font-size: 12px; color: #999; letter-spacing: -0.1px; -webkit-font-smoothing: antialiased; } .foot .line { width: 100%; } .foot .legal { width: 90%; } .foot .legal .copyright p { font-size: 11px; padding-top: 5px; } .foot .legal .links { float: none; text-align: left; } .foot .legal .links a { font-size: 11px; color: #999; -webkit-font-smoothing: antialiased; } .foot .legal .links a:hover { text-decoration: none; color: #333; } } @media screen and (max-width: 640px) { #hid-button:checked ~.head .mainnav .home {} #hid-button:checked ~.head .mainnav .order { display: block; } #hid-button:checked ~.head .mainnav .decoder { display: block; } #hid-button:checked ~.head .mainnav .sample { display: block; } #hid-button:checked ~.head .mainnav .help { display: block; } #hid-button:checked ~.head .mainnav .faq { display: block; } #hid-button:checked ~.head .mainnav .contact { display: block; } #hid-button:checked ~.head .mainnav .login { display: block; position: relative; left: 0; text-align: left; } #hid-button:checked ~.head .mainnav .account { display: block; position: relative; left: 0; text-align: left; } .head .mainnav { width: 100%; height: 100%; } .head .mainnav ul { padding-left: 20px; } .head .mainnav ul li { padding-left: 13px; display: block; box-sizing: border-box; } .head .mainnav .menuicon { width: 30%; display: block; font-size: 20px; color: #fff; font-weight: 300; } .head .mainnav .menuicon label { cursor: pointer; } .head .mainnav .home { position: absolute; top: 0px; right: 40px; width: 110px; text-align: right; } .head .mainnav .order { width: 100%; display: none; } .head .mainnav .decoder { width: 100%; display: none; } .head .mainnav .sample { width: 100%; display: none; } .head .mainnav .help { width: 100%; display: none; } .head .mainnav .contact { width: 100%; display: none; } .head .mainnav .login { width: 100%; display: none; } .head .mainnav .account { width: 100%; display: none; } .head .mainnav .icon-login-arrow { background-position: 0px 14px; } .head .mainnav .icon-login-user { background-position: 0px 14px; } .headbox { display: none; } .headbox .box { width: 100%; } .headbox .box .logo { width: 100%; } .headbox .box .right { display: none; } .foot { padding: 20px 0px 30px 0px; } .foot .nav { width: 100%; text-align: center; } .foot .nav .column-a { width: 45%; } .foot .nav .column-b { width: 45%; } .foot .nav .column-c { width: 45%; padding-top: 30px; } .foot .nav .column-d { width: 45%; padding-top: 30px; } .foot .nav .column-e { width: 90%; padding-top: 15px; margin-top: 15px; border-top: 1px solid #e3e3e3; text-align: center; } .foot .nav .column-e .social { padding-top: 20px; } .foot .disclaimer { width: 90%; margin: auto; padding-bottom: 8px; padding-top: 25px; } .foot .disclaimer p { font-size: 12px; color: #999; letter-spacing: -0.1px; -webkit-font-smoothing: antialiased; } .foot .line { width: 100%; } .foot .legal { width: 90%; } .foot .legal .copyright p { font-size: 11px; padding-top: 5px; } .foot .legal .links { float: none; text-align: left; } .foot .legal .links a { font-size: 11px; color: #666; -webkit-font-smoothing: antialiased; } .foot .legal .links a:hover { text-decoration: none; color: #333; } } .headbox .box .right .prgs {width: 400px; display: flex; justify-content: space-between;} .headbox .box .right .prgs .step {box-sizing: border-box; position: relative; z-index: 1; display: block; width: 25px; height: 25px; margin-bottom: 0px; border: 6px solid #fff; border-radius: 50%; background-color: #efefef;} .headbox .box .right .prgs .step:after {color: #8e8e8e; position: absolute; top: 20px;} .headbox .box .right .prgs .step:before {position: absolute; z-index: -1; top: 5px; right: 18px; width: 100px; height: 3px; content: ''; background-color: #efefef;} .headbox .box .right .prgs .step:first-child:before {content: none;} .headbox .box .right .prgs .step.do {background-color: #aeaeae;} .headbox .box .right .prgs .step.do:before {background-color: #aeaeae;} .headbox .box .right .prgs .step.do:after {color: #808080;} .headbox .box .right .prgs .step.active {background-color: #00911c;} .headbox .box .right .prgs .step.active:before {background-color: #00911c;} .headbox .box .right .prgs .step.active:after {color: #00911c;} .headbox .box .right .prgs .step:nth-child(1):after {white-space: nowrap;content: 'Type a Number';} .headbox .box .right .prgs .step:nth-child(2):after {right: -20px; white-space: nowrap;content: 'Decoder';} .headbox .box .right .prgs .step:nth-child(3):after {right: -38px; white-space: nowrap; content: 'Records Check';} .headbox .box .right .prgs .step:nth-child(4):after {right: 0px; white-space: nowrap; content: 'Report';} .body-decoding {background-color: #fff; padding-bottom: 100px;} .body-decoding .center {width: 800px; margin: auto;} .body-decoding .center .title {padding: 30px 0px 30px 0px; text-align: center;} .body-decoding .center .title h1 {font-size: 42px; font-weight: 300; word-spacing: 3px; letter-spacing: -0.3px;} .body-decoding .center .box {width: 760px; background-color: #fff; box-shadow: 0px 0px 8px -1px #b7b7b7;} .body-decoding .center .box .status {width: 620px; margin: auto; padding: 40px 0px 30px 0px;} .body-decoding .center .box .status #percent {position: relative; height: 0px; top: 4px; font-size: 17px; text-align: center; width: 100%; color: #ffffff; text-shadow: 0px 0px 3px #000000;} .body-decoding .center .box .status #progress {height: 30px;} .body-decoding .center .box .status .progress-bar {width: 100%; height: 30px; vertical-align: middle; background-color: #f3f3f3; border-radius: 4px; overflow: hidden;} .body-decoding .center .box .status .progress-bar .progress-bar-stripes {width: 0%; height: 100%; text-align: center; font-size: 17px; color: #fff; line-height: 30px; background-color: #337ab7; -webkit-animation: progress-bar-stripes 1.3s linear infinite; -o-animation: progress-bar-stripes 1.3s linear infinite; animation: progress-bar-stripes 1.3s linear infinite; -webkit-transition: width .6s ease; -o-transition: width .6s ease; transition: width .6s ease;} .body-decoding .center .box .status .progress-bar .progress-bar-stripes {background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent); background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent); background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent); -webkit-background-size: 40px 40px; background-size: 40px 40px;} .body-decoding .center .box .status .info {padding-top: 10px;} .body-decoding .center .box .status .info p {font-size: 14px; font-weight: 400; -webkit-font-smoothing: antialiased;} .body-decoding .center .box .grey {background-color: #fcfcfc;} .body-decoding .center .box .grey .searching {text-align: center; padding: 20px 0px 20px 70px;} .body-decoding .center .box .grey .searching .block {width: 220px; display: inline-block; text-align: left;} .body-decoding .center .box .grey .searching .block ul {padding: 0px; margin: 0px;} .body-decoding .center .box .grey .searching .block li {list-style: none; background:url('/media/img/order/logo_checked_grey.png') no-repeat; background-size: 14px 14px; padding-left: 21px; background-position: 0px 8px; font-size: 14px; color: #999; -webkit-font-smoothing: antialiased; line-height: 2.2;} .body-decoding .center .box .grey .searching .block .checked {list-style: none; background:url('/media/img/order/logo_checked.png') no-repeat; background-size: 14px 14px; padding-left: 21px; background-position: 0px 8px; font-size: 14px; color: #00911c; -webkit-font-smoothing: antialiased; line-height: 2.2;} .body-decoding .center .box .grey .line {width: 765px; box-shadow: 0px 2.5px 5px -3px #b7b7b7; left: -2px; position:relative;} .body-decoding .center .box .grey .tips {padding: 30px 50px 30px 50px; background-color: #fcfcfc; text-align: center;} .body-decoding .center .box .grey .tips p {font-size: 15px; -webkit-font-smoothing: antialiased; color: #666; line-height: 2.2; word-spacing: 3px; letter-spacing: -0.3px;} .body-decoding .center .box .grey .tips #tip-2 {display: none;} @-webkit-keyframes progress-bar-stripes {from{background-position:40px 0}to{background-position:0 0}} @-o-keyframes progress-bar-stripes {from{background-position:40px 0}to{background-position:0 0}} @keyframes progress-bar-stripes {from{background-position:40px 0}to{background-position:0 0}} @media screen and (max-width: 980px) { .body-decoding .center {width: 90%; max-width: 800px;} .body-decoding .center .box {width: 94%; margin: auto; padding: 0px;} .body-decoding .center .box .status {width: 90%;} .body-decoding .center .box .grey .searching {text-align: left;} .body-decoding .center .box .grey .searching .block {width: 30%; min-width: 150px;} .body-decoding .center .box .grey .line {width: 100%;} } @media screen and (max-width: 670px) { .headbox .box .right {display:none;} } @media screen and (max-width: 640px) { .body-decoding {background-color: #fff; padding-bottom: 50px;} .body-decoding .center {width: 100%;} .body-decoding .center .title {padding: 10px 0px 10px 0px; text-align: center;} .body-decoding .center .box {width: 94%; margin: auto; padding: 0px;} .body-decoding .center .box .steps {display:none;} .body-decoding .center .box .status {width: 90%;} .body-decoding .center .box .grey .searching .block {width: 90%;} .body-decoding .center .box .grey .line {width: 100%;} }
+       </style>
+      </meta>
+     </meta>
+    </meta>
+   </meta>
+  </link>
+ </head>
+ <body>
+  <header>
+   <input id="hid-button" type="checkbox"/>
+   <nav class="head" itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+    <div class="mainnav">
+     <ul>
+      <li class="menuicon">
+       <label for="hid-button">
+        ☰
+       </label>
+      </li>
+      <li class="home">
+       <a href="/" itemprop="url">
+        <svg alt="FAXVIN" height="18" title="FAXVIN" width="23">
+         <use xlink:href="/media/img/sprite.svg#header-home-icon">
+         </use>
+        </svg>
+       </a>
+      </li>
+      <li class="order">
+       <a href="/vin-check" itemprop="url">
+        VIN Check
+       </a>
+      </li>
+      <li class="decoder">
+       <a href="/vin-decoder" itemprop="url">
+        VIN Decoder
+       </a>
+      </li>
+      <li class="sample">
+       <a href="/sample" itemprop="url">
+        Sample Reports
+       </a>
+      </li>
+      <li class="help">
+       <a href="/help" itemprop="url">
+        Help
+       </a>
+      </li>
+      <li class="contact">
+       <a href="/company/contact" itemprop="url">
+        Contact Us
+       </a>
+      </li>
+      <li class="login">
+       <a href="/login" itemprop="url">
+        <svg height="15" width="15">
+         <use xlink:href="/media/img/sprite.svg#header-login-arrow">
+         </use>
+        </svg>
+        Account Login
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <div class="headbox">
+    <div class="box">
+     <div class="logo">
+      <a href="/">
+       <img alt="FAXVIN Logo" height="38" src="/media/img/header/fv-logo.svg" width="244"/>
+      </a>
+     </div>
+     <div class="right">
+      <div class="prgs">
+       <div class="step active">
+       </div>
+       <div class="step do">
+       </div>
+       <div class="step">
+       </div>
+       <div class="step">
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="line">
+    </div>
+   </div>
+  </header>
+  <div class="body-decoding">
+   <div class="center">
+    <div class="title">
+     <h1>
+      License Plate Checking...
+     </h1>
+    </div>
+    <div class="box">
+     <div class="status">
+      <div id="percent">
+      </div>
+      <div id="progress">
+      </div>
+      <div class="info">
+       <p>
+        Please wait. Decoding ...
+       </p>
+      </div>
+     </div>
+     <div class="grey">
+      <div class="searching">
+       <div class="block">
+        <ul>
+         <li id="ld-1">
+          Vehicle Brand
+         </li>
+         <li id="ld-2">
+          Model
+         </li>
+        </ul>
+       </div>
+       <div class="block">
+        <ul>
+         <li id="ld-3">
+          Year
+         </li>
+         <li id="ld-4">
+          Trim
+         </li>
+        </ul>
+       </div>
+       <div class="block">
+        <ul>
+         <li id="ld-5">
+          Engine
+         </li>
+         <li id="ld-6">
+          Transmission
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   if(!window.jQuery) { window.location = "/license-plate-lookup/result?plate=IQ8661&state=IN"; } setTimeout('$("#ld-1").addClass("checked")',2000); setTimeout('$("#ld-2").addClass("checked")',4000); setTimeout('$("#ld-3").addClass("checked")',7000); setTimeout('$("#ld-4").addClass("checked")',8000); setTimeout('$("#ld-5").addClass("checked")',10500); setTimeout('$("#ld-6").addClass("checked")',11800); $("#progress").progressTimer({ timeLimit: 12, warningThreshold: 0, onFinish: function() { window.location = "/license-plate-lookup/result?plate=IQ8661&state=IN"; } });
+  </script>
+  <footer class="foot">
+   <div class="nav">
+    <div class="column-a">
+     <b>
+      Navigation
+     </b>
+     <ul>
+      <li>
+       <a href="https://www.faxvin.com">
+        Home Page
+       </a>
+      </li>
+      <li>
+       <a href="/help">
+        Help
+       </a>
+      </li>
+      <li>
+       <a href="/help/faq">
+        FAQ
+       </a>
+      </li>
+      <li>
+       <a href="/login">
+        Account Login
+       </a>
+      </li>
+      <li class="s">
+       <a href="/blog">
+        Articles Center
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="column-b">
+     <b>
+      Resources
+     </b>
+     <ul>
+      <li>
+       <a href="/vin-check">
+        VIN Check
+       </a>
+      </li>
+      <li>
+       <a href="/vin-decoder">
+        VIN Decoder
+       </a>
+      </li>
+      <li>
+       <a href="/recalls">
+        Vehicle Recalls
+       </a>
+      </li>
+      <li>
+       <a href="/license-plate-lookup">
+        License Plate Lookup
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="column-c">
+     <b>
+      Sample Reports
+     </b>
+     <ul>
+      <li>
+       <a href="/sample/nissan" target="_blank">
+        2007 Nissan Pathfinder
+       </a>
+      </li>
+      <li>
+       <a href="/sample/honda" target="_blank">
+        2013 Honda Civic
+       </a>
+      </li>
+      <li class="s">
+       <a href="/help/glossary">
+        Full Report Glossary
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="column-d">
+     <b>
+      Company
+     </b>
+     <ul>
+      <li>
+       <a href="/company">
+        About Us
+       </a>
+      </li>
+      <li>
+       <a href="/company/contact">
+        Contact
+       </a>
+      </li>
+      <li class="s">
+       <a href="/help/nmvtis">
+        NMVTIS Disclaimer
+       </a>
+      </li>
+      <li>
+       <a href="/help/dppa">
+        Driver's Privacy Protection Act
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="column-e">
+     <div class="payments">
+      <div class="logos">
+       <svg height="25" width="40">
+        <use xlink:href="/media/img/sprite.svg#all-paymeth-paypal">
+        </use>
+       </svg>
+       <svg height="25" width="40">
+        <use xlink:href="/media/img/sprite.svg#all-paymeth-visa">
+        </use>
+       </svg>
+       <svg height="25" width="40">
+        <use xlink:href="/media/img/sprite.svg#all-paymeth-mastercard">
+        </use>
+       </svg>
+       <svg height="25" width="40">
+        <use xlink:href="/media/img/sprite.svg#all-paymeth-amex">
+        </use>
+       </svg>
+       <svg height="25" width="40">
+        <use xlink:href="/media/img/sprite.svg#all-paymeth-discover">
+        </use>
+       </svg>
+      </div>
+      <div class="ssl">
+       <script src="https://seal.thawte.com/getthawteseal?host_name=www.faxvin.com&amp;size=S&amp;lang=en" type="text/javascript">
+       </script>
+      </div>
+     </div>
+     <div class="rating">
+     </div>
+     <div class="social">
+      <ul>
+       <li>
+        <a href="https://www.facebook.com/faxvin.official/" rel="noopener nofollow" target="_blank">
+         <svg height="28" title="Facebook FAXVIN" width="28">
+          <use xlink:href="/media/img/sprite.svg#all-facebook-logo">
+          </use>
+         </svg>
+        </a>
+       </li>
+       <li>
+        <a href="https://twitter.com/faxvin" rel="noopener nofollow" target="_blank">
+         <svg height="28" title="Twitter FAXVIN" width="28">
+          <use xlink:href="/media/img/sprite.svg#all-twitter-logo">
+          </use>
+         </svg>
+        </a>
+       </li>
+       <li>
+        <a href="https://www.linkedin.com/company/faxvin" rel="noopener nofollow" target="_blank">
+         <svg height="28" title="LinkedIn FAXVIN" width="28">
+          <use xlink:href="/media/img/sprite.svg#all-linkedin-logo">
+          </use>
+         </svg>
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <br/>
+   <div class="line">
+   </div>
+   <div class="legal">
+    <div class="links">
+     <a href="/company/privacy">
+      Privacy Policy
+     </a>
+     <a href="/company/terms">
+      Terms and Conditions
+     </a>
+    </div>
+    <div class="copyright">
+     <p>
+      Copyright © 2010-2021, FAXVIN. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script type="text/javascript">
+   var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-15615943-2']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+  </script>
+ </body>
+</html>

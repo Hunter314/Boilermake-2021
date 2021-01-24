@@ -28,12 +28,10 @@ def process_img(img):
         # Not in US
         # All US State plates are of the form:
         # us-XX where XX is the lowercase state abbreviation
+        sucess = False
         return False
-    print(r.json())
-    success = False
-    state = 'IN'
     if (success):
-        return process(license, state)
+        return {"state":state,"license":license}
     else:
         return False
 

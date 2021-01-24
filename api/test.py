@@ -8,5 +8,5 @@ strang[2:]
 # print(strang)
 # with open("./pics/epic.png","wb") as f:
 #     f.write(base64.b64decode(strang))
-r = requests.post("http://127.0.0.1:5000/",data= {"image":strang})
-print(r.json())
+r = requests.post("http://127.0.0.1:8000/api/image",data= {"image":strang})
+print(r.text)

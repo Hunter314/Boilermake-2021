@@ -32,7 +32,10 @@ def api_license(request):
         except:
             return status(False,"missing required field")   
         #determines if license plate exists
-        data = process(lice,state)
+        ### do not leave this in ###
+        data = {"make":"chevrolet","model":"malibu","year":2015}
+        ###
+        #data = process(lice,state)
         if not data:
             return status(False,"license plate not found")
         #search database for car
@@ -51,7 +54,7 @@ def api_license(request):
     else:
         return status(False,"method forbidden")
         
-
+@csrf_exempt
 def api_image(request):
     #check if it is a post request
     if request.method == "POST":
@@ -65,8 +68,7 @@ def api_image(request):
         if not data:
             return status(False,"an error has occured: license plate not found")
         #submit photo to our current API
-
-
+        return status(True,data)
     else:
         return status(False,"method forbidden")
 

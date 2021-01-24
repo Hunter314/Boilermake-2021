@@ -24,6 +24,16 @@ def serve(html):
 @csrf_exempt
 def api_license(request):
     #check if it is a post request
+    testing = True
+    if (testing):
+        car = Car.objects.all().first()
+        car_data = CarSerializer(car)
+        # returns data and slider info for each piece of data
+        return status(True, {**car_data.data, "license": "696969",
+                             "n2o-slider": Data.percent(car.n2o, "n2o"),
+                             "co2-slider": Data.percent(car.co2, "co2"),
+                             "co-slider": Data.percent(car.co, "co")})
+
     if request.method == "POST":
         #determines if user entered license plate and state
         try:
@@ -64,11 +74,11 @@ def api_image(request):
         except:
             return status(False,"missing required field")
         #determines if license plate exists
-        data = process_img(image)
-        if not data:
+        data_dict = process_img(image)
+        if not data_dict:
             return status(False,"an error has occured: license plate not found")
         #submit photo to our current API
-        return status(True,data)
+        return status(True,data_dict)
     else:
         return status(False,"method forbidden")
 

@@ -78,12 +78,19 @@ Try it Out
         display:flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
         align-items: center;
     }
     .upload-me {
         padding-top:20px;
         font: normal normal normal 25px Montserrat;
         color: #383838;
+    }
+    .display-file {
+    opacity: 0; 
+    width:100%;
+    height: 100%;
+    position: absolute;
     }
 
 </style>
@@ -94,8 +101,7 @@ Try it Out
 <div id = "epic">
 
 </div>
-<script src = "/static/js/inputs/Input.js" type = "text/babel" ></script>
-<script src = "/static/js/inputs/Select.js" type = "text/babel" ></script>
 <script src = "/static/js/inputs/Image.js" type = "text/babel" ></script>
+<script src = "/static/js/sub/Data.js" type = "text/babel" ></script>
 <script src = "/static/js/main/Img_Input.js" type = "text/babel"></script>
 {%endblock%}

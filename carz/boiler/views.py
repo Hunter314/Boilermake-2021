@@ -24,28 +24,29 @@ def serve(html):
 @csrf_exempt
 def api_license(request):
     #check if it is a post request
-    testing = False
-    if (testing):
-        car = Car.objects.all().first()
-        car_data = CarSerializer(car)
-        # returns data and slider info for each piece of data
-        return status(True, {**car_data.data, "license": "696969",
-                             "n2o-slider": Data.percent(car.n2o, "n2o"),
-                             "co2-slider": Data.percent(car.co2, "co2"),
-                             "co-slider": Data.percent(car.co, "co")})
+    # testing = False
+    # if (testing):
+    #     car = Car.objects.all().first()
+    #     car_data = CarSerializer(car)
+    #     # returns data and slider info for each piece of data
+    #     return status(True, {**car_data.data, "license": "696969",
+    #                          "n2o-slider": Data.percent(car.n2o, "n2o"),
+    #                          "co2-slider": Data.percent(car.co2, "co2"),
+    #                          "co-slider": Data.percent(car.co, "co")})
 
     if request.method == "POST":
         #determines if user entered license plate and state
         try:
-            lice = request.POST['license']
-            state = request.POST['state']
+            lice = request.POST['license'].upper()
+            state = request.POST['state'].upper()
         except:
             return status(False,"missing required field")   
         #determines if license plate exists
         ### do not leave this in ###
-        data = {"make":"chevrolet","model":"malibu","year":2015}
+        # data = {"make":"chevrolet","model":"malibu","year":2015}
         ###
-        #data = process(lice,state)
+        data = process(lice,state)
+        print(data)
         if not data:
             return status(False,"license plate not found")
         #search database for car
@@ -72,7 +73,7 @@ def api_image(request):
         try:
             image = request.POST['image']
         except:
-            return status(False,"missing required field")
+            return status(False, "Image Size too Large Max File Size 3MB")
         #determines if license plate exists
         data_dict = process_img(image)
         if not data_dict:

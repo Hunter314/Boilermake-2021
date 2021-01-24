@@ -1,26 +1,30 @@
 import base64
-
 from django.http import JsonResponse
 import requests
 import json
 from bs4 import BeautifulSoup
 from time import sleep
 
+
 def status(status,payload):
     return JsonResponse({"status":status,"payload":payload})
 
 
 def process_img(img):
-    # enc_img = base64.b64encode(img.read())
+    img = base64.b64decode(img)
     file = {'upload': img}
-
     r = requests.post('https://api.platerecognizer.com/v1/plate-reader/',
                       files=file,
                       headers={"authorization":"Token fa43527529a25e1c6b2cd1670c6ccb74d6e1104e"})
 
     return_dict = r.json()
+    print(return_dict)
+    if not return_dict['results']:
+        return False
     license = return_dict['results'][0]['plate']
     state = return_dict['results'][0]['region']['code']
+    if not state or not license:
+        return False
     try:
         state = state[3:6]
         state = state.upper()
@@ -59,8 +63,12 @@ def process(license, state):
     #     lister.append(item)
         json = r.json()
         if json['success']:
-            print({"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])})
-            return {"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])}
+            # print({"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])})
+            make = json['CarMake']
+            model = json["CarModel"].split(" ")[0]
+            if make.lower() == "mazda":
+                model = model[len(model)-1]
+            return {"make":make,"model":model,"year":int(json["RegistrationYear"])}
         else:
             return False
 

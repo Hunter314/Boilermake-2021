@@ -6,7 +6,6 @@ var useEffect = React.useEffect;
 function Img_Input() {
     //initializes a state
     //using dict is unncessesary but I can use lazy changer so 🙃
-    const [properties, setProperties] = useState({license:"",state:""})
     const [error, setError] = useState(false)
     const [flip, setFlip] = useState(false)
     //initializes changer function
@@ -17,13 +16,26 @@ function Img_Input() {
         }
         return setinal
     }
+    async function uploadImage(img) {
+        let b64 = img.replace(/^data:image\/[a-z]+;base64,/, "");
+        let fdata = new FormData()
+        fdata.append("image",b64)
+        let data = await fetch("/api/image",{method:"post",body:fdata})
+        let json = await data.json()
+        if(json.status) {
+            gimmeData(json.payload.license,json.payload.state)
+        } else {
+            setError(json.payload)
+        }
+    }
     
-    async function gimmeData() {
+    async function gimmeData(license, state) {
         let data = new FormData()
-        data.append("license", properties.license)
-        data.append("state",properties.state)
+        data.append("license", license)
+        data.append("state",state)
         let req = await fetch("http://127.0.0.1:8000/api/license",{method:"post",body:data})
         let json = await req.json()
+        console.log(json)
         if (!json.status) {
             setError(json.payload)
         } else {
@@ -48,10 +60,9 @@ function Img_Input() {
                 <div className = "flex-column">
                 <div className = "flex-rower" style = {{width:"100%"}}>
                 
-                <Image />
+                <Image changer = {uploadImage} />
 
                 </div>
-                <button className = "button" onClick = {gimmeData}>Upload</button>
                 </div>
             </div>
             <div className = "sub">

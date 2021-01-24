@@ -45,7 +45,7 @@ class Data(models.Model):
         Data.process_data("n2o")
     def process_data(title):
         #gets data object
-        data = Data.objects.get(name=title)
+        data, created = Data.objects.get_or_create(name=title)
         #gets all car objects in increasing order and excludes all blank values
         cars = Car.objects.order_by(title).exclude(**{title:None})
         #calculates median,iq1,iq3

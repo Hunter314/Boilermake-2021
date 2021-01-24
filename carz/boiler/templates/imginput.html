@@ -69,6 +69,22 @@ Try it Out
     .not-epic {
         height:200px;;
     }
+    .box {
+        width:100%;
+        background: #FAFAFADD 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        border-radius: 15px;
+        height:400px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .upload-me {
+        padding-top:20px;
+        font: normal normal normal 25px Montserrat;
+        color: #383838;
+    }
 
 </style>
 {%endblock%}
@@ -76,9 +92,10 @@ Try it Out
 {%block body%}
 
 <div id = "epic">
-    
+
 </div>
 <script src = "/static/js/inputs/Input.js" type = "text/babel" ></script>
 <script src = "/static/js/inputs/Select.js" type = "text/babel" ></script>
-<script src = "/static/js/main/License_Input.js" type = "text/babel"></script>
+<script src = "/static/js/inputs/Image.js" type = "text/babel" ></script>
+<script src = "/static/js/main/Img_Input.js" type = "text/babel"></script>
 {%endblock%}

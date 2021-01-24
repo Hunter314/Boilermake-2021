@@ -3,7 +3,7 @@ var useEffect = React.useEffect;
 
 
 
-function License_Input() {
+function Img_Input() {
     //initializes a state
     //using dict is unncessesary but I can use lazy changer so 🙃
     const [properties, setProperties] = useState({license:"",state:""})
@@ -39,7 +39,6 @@ function License_Input() {
             </div>
             <div className = "input">
                 <div className = "input-head">
-                    License Plate:
                 </div>
                 {error &&
                 <div className = "input-head error">
@@ -48,8 +47,9 @@ function License_Input() {
                 }
                 <div className = "flex-column">
                 <div className = "flex-rower" style = {{width:"100%"}}>
-                <Input value = {properties.license} changer = {changer("license")}/>
-                <Select value = {properties.state} changer = {changer("state")} />
+                
+                <Image />
+
                 </div>
                 <button className = "button" onClick = {gimmeData}>Upload</button>
                 </div>
@@ -71,4 +71,4 @@ function License_Input() {
 }
 
 const uh = document.querySelector('#epic');
-ReactDOM.render(<License_Input />, uh);
+ReactDOM.render(<Img_Input />, uh);

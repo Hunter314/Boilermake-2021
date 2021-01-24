@@ -61,11 +61,10 @@ def api_image(request):
         except:
             return status(False,"missing required field")
         #determines if license plate exists
-        data = process(image)
+        data = process_img(image)
         if not data:
             return status(False,"an error has occured: license plate not found")
         #submit photo to our current API
-
 
 
     else:

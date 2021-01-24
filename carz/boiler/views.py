@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
-from .api_helper import status,process
+from .api_helper import status,process,process_img
 from django.views.decorators.csrf import csrf_exempt
 from .models import Car, Data
 from .api_models import CarSerializer
 
 def home(request):
 # Create your views here.
-    # y
+    #
     year = request.GET.get('y')
     make = request.GET.get('m')
     model = request.GET.get('mo')
@@ -17,7 +17,7 @@ def home(request):
 #serve function for static webpages
 def serve(html):
     def query(request):
-        return render(request,html)
+        return render(request, html)
     return query
 
 #given a license it will return the cars data
@@ -39,6 +39,8 @@ def api_license(request):
         cars = Car.objects.filter(car_model__icontains=data['model'], make__icontains=data['make'],year=data['year']).all()
         if not cars:
             return status(False,"Car Not Found In Database")
+        # there should only be one now
+        # but just in case
         car = cars[0]
         car_data = CarSerializer(car)
         #returns data and slider info for each piece of data
@@ -50,4 +52,21 @@ def api_license(request):
         return status(False,"method forbidden")
         
 
+def api_image(request):
+    #check if it is a post request
+    if request.method == "POST":
+        #determines if user entered license plate and state
+        try:
+            image = request.POST['image']
+        except:
+            return status(False,"missing required field")
+        #determines if license plate exists
+        data = process_img(image)
+        if not data:
+            return status(False,"an error has occured: license plate not found")
+        #submit photo to our current API
+
+
+    else:
+        return status(False,"method forbidden")
 

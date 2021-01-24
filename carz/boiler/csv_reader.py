@@ -161,8 +161,42 @@ def append_to_pandas(df, all_dfs):
 
 def read_all():
     clear()
-    read(read_all_csvs())
-    read(read_all_xlsx())
+    df = pd.concat([read_all_csvs(), read_all_xlsx()])
+    df2 = pd.DataFrame(columns=["year","model","make","co2","co","nox"])
+    make_model = df.iloc[0]
+    num_cars_of_model = 0
+    total_co2 = 0
+    total_co = 0
+    total_nox = 0
+    for index, value in df.iterrows():
+        if value.iloc[1] + value.iloc[2] != make_model.iloc[1] + make_model.iloc[2]:
+            print(make_model.iloc[1])
+            new_row = pd.DataFrame({"year": [make_model.iloc[0]],
+                                    "model": [make_model.iloc[1]],
+                                    "make": [make_model.iloc[2]],
+                                    "co2": [total_co2 / num_cars_of_model],
+                                    "co": [total_co / num_cars_of_model],
+                                    "nox": [total_nox / num_cars_of_model]})
+            df2 = df2.append(new_row, ignore_index=True)
+            make_model = value
+            num_cars_of_model = 0
+            total_co2 = 0
+            total_co = 0
+            total_nox = 0
+        total_co2 += value.iloc[3]
+        total_co += value.iloc[4]
+        total_nox += value.iloc[5]
+        num_cars_of_model += 1
+    new_row = pd.DataFrame({"year": [make_model.iloc[0]],
+                            "model": [make_model.iloc[1]],
+                            "make": [make_model.iloc[2]],
+                            "co2": [total_co2 / num_cars_of_model],
+                            "co": [total_co / num_cars_of_model],
+                            "nox": [total_nox / num_cars_of_model]})
+    df2 = df2.append(new_row, ignore_index=True)
+
+    print(df2)
+    read(df2)
 
 
 def clean_df(df):

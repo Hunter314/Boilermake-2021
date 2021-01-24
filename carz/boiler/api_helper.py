@@ -1,12 +1,43 @@
+import base64
+
 from django.http import JsonResponse
 import requests
+import json
 from bs4 import BeautifulSoup
 from time import sleep
 
 def status(status,payload):
     return JsonResponse({"status":status,"payload":payload})
-#takes in a state and license plate
-#returns dict of make model and year
+
+
+def process_img(img):
+    # enc_img = base64.b64encode(img.read())
+    file = {'upload': img}
+
+    r = requests.post('https://api.platerecognizer.com/v1/plate-reader/',
+                      files=file,
+                      headers={"authorization":"Token fa43527529a25e1c6b2cd1670c6ccb74d6e1104e"})
+
+    return_dict = r.json()
+    license = return_dict['results'][0]['plate']
+    state = return_dict['results'][0]['region']['code']
+    try:
+        state = state[4:6]
+        state = state.upper()
+    except ValueError:
+        # Not in US
+        # All US State plates are of the form:
+        # us-XX where XX is the lowercase state abbreviation
+        return False
+    print(r.json())
+    success = False
+    state = 'IN'
+    if (success):
+        return process(license, state)
+    else:
+        return False
+
+
 def process(license, state):
     lister = []
     soup = None
@@ -36,6 +67,7 @@ def process(license, state):
             return {"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])}
         else:
             return False
+
 
 def upload(img):
     url = f"http://api.carsxe.com/whatcaristhat?key=0hsbdq9rl_o6thqm9v5_bv25wj6aa"

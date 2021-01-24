@@ -16,12 +16,12 @@ class Car(models.Model):
 #class to store statistical data of co2,co, and n2o
 class Data(models.Model):
     name = models.TextField()
-    iq3 = models.FloatField()
-    median = models.FloatField()
-    iq1 = models.FloatField()
-    average = models.FloatField()
-    maximum = models.FloatField()
-    minimum = models.FloatField()
+    iq3 = models.FloatField(default= 0)
+    median = models.FloatField(default= 0)
+    iq1 = models.FloatField(default= 0)
+    average = models.FloatField(default= 0)
+    maximum = models.FloatField(default= 0)
+    minimum = models.FloatField(default= 0)
     def __str__(self):
         return self.name
     #returns range for slider

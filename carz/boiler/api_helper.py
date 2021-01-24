@@ -30,10 +30,8 @@ def process_img(img):
         # us-XX where XX is the lowercase state abbreviation
         sucess = False
         return False
-    if (success):
-        return {"state":state,"license":license}
-    else:
-        return False
+
+    return {"state":state,"license":license}
 
 
 def process(license, state):

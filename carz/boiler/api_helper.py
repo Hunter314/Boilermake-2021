@@ -6,6 +6,7 @@ from time import sleep
 def status(status,payload):
     return JsonResponse({"status":status,"payload":payload})
 
+
 def process(license, state):
     lister = []
     soup = None
@@ -35,6 +36,7 @@ def process(license, state):
             return {"make":json['CarMake'],"model":json["CarModel"].split(" ")[0],"year":int(json["RegistrationYear"])}
         else:
             return False
+
 
 def upload(img):
     url = f"http://api.carsxe.com/whatcaristhat?key=0hsbdq9rl_o6thqm9v5_bv25wj6aa"

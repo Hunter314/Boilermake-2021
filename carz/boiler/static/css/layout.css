@@ -4,10 +4,12 @@
         height: 100%;
     }
     .navbar {
-        height:100px;
+        height:10vh;
         background-color:white;
+        z-index: 10;
         width: 100%;
         box-shadow: 0px 1px 5px #6A15BF;
+        position:fixed;
     }
     .flex-row{
         display:flex;

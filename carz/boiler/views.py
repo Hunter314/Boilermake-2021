@@ -8,7 +8,7 @@ from .api_models import CarSerializer
 
 def home(request):
 # Create your views here.
-    # y
+    #
     year = request.GET.get('y')
     make = request.GET.get('m')
     model = request.GET.get('mo')
@@ -17,7 +17,7 @@ def home(request):
 #serve function for static webpages
 def serve(html):
     def query(request):
-        return render(request,html)
+        return render(request, html)
     return query
 
 #given a license it will return the cars data
@@ -39,6 +39,8 @@ def api_license(request):
         cars = Car.objects.filter(car_model__icontains=data['model'], make__icontains=data['make'],year=data['year']).all()
         if not cars:
             return status(False,"Car Not Found In Database")
+        # there should only be one now
+        # but just in case
         car = cars[0]
         car_data = CarSerializer(car)
         #returns data and slider info for each piece of data

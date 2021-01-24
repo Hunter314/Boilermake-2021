@@ -1,0 +1,65 @@
+{%extends "layout.html"%}
+
+{%block title%}
+Try it Out
+{%endblock%}
+
+{%block head%}
+<link rel = "stylesheet" href = "/static/css/homepage.css" />
+
+{%endblock%}
+
+{%block body%}
+<div class = "scroll-page">
+    <div class = "main">
+        <div class = "text flex-column">
+        <div class = "header">
+        What is Your Environmental Impact?
+        </div>
+        
+        <div class = "sub">
+            Carbon Emissions made Accessible
+        </div>
+        <div class = "grid-container">
+            <div>
+            In just a few seconds, receive a report of your car's emissions and how they compare.      
+            </div>
+        </div>
+    </div>
+    <img src = "/static/images/chicago.jpg" class = "back-img"/>
+
+</div>
+<div class = "scroll-page decision-page" id = "try-now">
+    <div class = "section-title header">
+    Try It Yourself
+    </div>
+    <center>
+        <div class = "grid-container-2">
+            
+            <div>
+                <div class = "header-dark">
+                    Automatic
+                    </div>
+                    <img src = "/static/images/manual-img-csv.png" class = "thumbnail-image">
+                    <p>
+                        Upload an image of any license plate.
+                    </p>
+                    <button class = "button" onclick="window.location.href='/try/automatic/'">Try it!</button>
+                        
+            </div>
+            <div>
+                <div class = "header-dark">
+                Manual
+                </div>
+                <img src = "/static/images/manual-img-csv.png" class = "thumbnail-image">
+                <div>
+                    <p>
+                        Upload your license plate number to find out your impact on the environment.
+                    </p>
+                    <button class = "button" onclick="window.location.href='/try/manual/'">Try it!</button>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+{%endblock%}

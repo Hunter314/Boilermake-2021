@@ -1,59 +1,35 @@
 function Data(flip) {
-    var green = '/static/images/curve_green.png'
+    var green = '/static/images/curve_green.png';
     var distcurves = ['/static/images/curve_green.png',
                     '/static/images/curve_yellow.png',
                     '/static/images/curve_orange.png',
-                    '/static/images/curve_red.png']
-    var CoZ = flip.getVal
-    colorFromZ(zval) {
+                    '/static/images/curve_red.png'];
+    function colorFromZ(zval) {
         if (zval < -1) {
             return 0;
         } else if (zval < 0) {
             return 1;
         } else if (zval < 1) {
             return 2;
-        } else return 3;
+        } else {
+            return 3;
+        }
     }
-    coGetZ(coval) {
+
+    function coGetZ(coval) {
         var comean = 0.4156269919438033;
         var cosd = 3.375309575816614;
         return (coval - comean) / cosd;
     }
-    co2GetZ(co2val) {
+    function co2GetZ(co2val) {
         var co2mean = 345.012823;
         var co2sd = 88.57242028673154;
         return (co2val - co2mean) / co2sd;
     }
+    var co2Z = co2GetZ(flip.co2);
+    var coZ = coGetZ(flip.co);
 
 
-    getZPercent(z) {
-       // If z is greater than 6.5 standard deviations from the mean
-       // the number of significant digits will be outside of a reasonable
-       // range.
-       if (z < -6.5)
-         return 0.0;
-
-       if (z > 6.5)
-         return 1.0;
-
-       var factK    = 1;
-       var sum      = 0;
-       var term     = 1;
-       var k        = 0;
-       var loopStop = Math.exp(-23);
-
-       while (Math.abs(term) > loopStop) {
-         term = 0.3989422804 * Math.pow(-1, k) * Math.pow(z, k) / (2 * k + 1) /
-                Math.pow(2, k) * Math.pow(z, k + 1) / factK;
-         sum += term;
-         k++;
-         factK *= k;
-       }
-
-       sum += 0.5;
-
-       return sum;
-    }
 
     return (     
         <div>
@@ -93,8 +69,7 @@ function Data(flip) {
                     </div>
                 </div>
             </div>
-            <img src = {green}  className = "not-epic" />
-            <img src = {flip["co2-slider"]}  className = "not-epic" />
+            <img src = {distcurves[colorFromZ(coZ)]}  className = "not-epic" />
         </div>
             }
         {flip.no2 &&
@@ -127,7 +102,8 @@ function Data(flip) {
                     </div>
                 </div>
             </div>
-            <img src = {flip['co-slider']}  className = "not-epic" />
+            <img src = {distcurves[colorFromZ(co2Z)]}  className = "not-epic" />
+
         </div>
             }
         </div>

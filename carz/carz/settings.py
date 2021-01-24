@@ -74,24 +74,24 @@ WSGI_APPLICATION = 'carz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # if not DEBUG:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django_cockroachdb',
-#         'NAME': 'django',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'postgres://rfheise@boiler-make-8hr.gcp-us-east4.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert=/static/keys/boiler-make-ca.crt',
-#         'PORT': '26257',
-#         # If connecting with SSL, remove the PASSWORD entry above and include
-#         # the section below, replacing the file paths as appropriate.
-#     },
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django_cockroachdb',
+        'NAME': 'django',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'postgres://rfheise@boiler-make-8hr.gcp-us-east4.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert=/static/keys/boiler-make-ca.crt',
+        'PORT': '26257',
+        # If connecting with SSL, remove the PASSWORD entry above and include
+        # the section below, replacing the file paths as appropriate.
+    },
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

@@ -5,7 +5,8 @@ from time import sleep
 
 def status(status,payload):
     return JsonResponse({"status":status,"payload":payload})
-
+#takes in a state and license plate
+#returns dict of make model and year
 def process(license, state):
     lister = []
     soup = None

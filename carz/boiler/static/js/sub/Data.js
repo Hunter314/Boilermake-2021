@@ -67,6 +67,17 @@ function Data(flip) {
                 Your Emmissions
                 </div>
                 <div className = "flex-rower" style = {{"width":"100%"}}>
+                    <div className ="dumbcss" style = {{fontSize:"20px"}}>
+                        Make:{flip.make}
+                    </div>
+                    <div className = "dumbcss" style = {{fontSize:"20px"}}>
+                        Model:{flip.model}
+                    </div>
+                    <div className = "dumbcss" style = {{fontSize:"20px"}}>
+                        Year:{flip.year}
+                    </div>
+                </div>
+                <div className = "flex-rower" style = {{"width":"100%"}}>
                     <div className ="dumbcss">
                         Plate No.
                     </div>
@@ -92,7 +103,7 @@ function Data(flip) {
                     <div className = "data-value">
                         {(flip.co2).toFixed(4)}
                         <div className = "javadasub">
-                            g/m
+                            grams / mile
                         </div>
                     </div>
                 </div>
@@ -114,7 +125,7 @@ function Data(flip) {
                     <div className = "data-value">
                         {flip.no2}
                         <div className = "javadasub">
-                            g/m
+                            grams / mile
                         </div>
                     </div>
                 </div>
@@ -130,7 +141,7 @@ function Data(flip) {
                     <div className = "data-value">
                         {(flip.co).toFixed(4)}
                         <div className = "javadasub">
-                            g/m
+                            grams / mile
                         </div>
                     </div>
                 </div>

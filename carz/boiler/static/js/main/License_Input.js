@@ -22,7 +22,7 @@ function License_Input() {
         let data = new FormData()
         data.append("license", properties.license)
         data.append("state",properties.state)
-        let req = await fetch("http://127.0.0.1:8000/api/license",{method:"post",body:data})
+        let req = await fetch("/api/license",{method:"post",body:data})
         let json = await req.json()
         if (!json.status) {
             setError(json.payload)

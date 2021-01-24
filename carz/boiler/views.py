@@ -58,7 +58,7 @@ def api_license(request):
         car = cars[0]
         car_data = CarSerializer(car)
         #returns data and slider info for each piece of data
-        return status(True,{**car_data.data,"license":lice,
+        return status(True,{**data,**car_data.data,"license":lice,
         "n2o-slider":Data.percent(car.n2o,"n2o"),
         "co2-slider":Data.percent(car.co2,"co2"),
         "co-slider":Data.percent(car.co,"co")})

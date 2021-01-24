@@ -33,7 +33,7 @@ function Img_Input() {
         let data = new FormData()
         data.append("license", license)
         data.append("state",state)
-        let req = await fetch("http://127.0.0.1:8000/api/license",{method:"post",body:data})
+        let req = await fetch("/api/license",{method:"post",body:data})
         let json = await req.json()
         console.log(json)
         if (!json.status) {

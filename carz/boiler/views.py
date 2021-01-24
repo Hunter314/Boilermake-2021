@@ -24,7 +24,7 @@ def serve(html):
 @csrf_exempt
 def api_license(request):
     #check if it is a post request
-    testing = True
+    testing = False
     if (testing):
         car = Car.objects.all().first()
         car_data = CarSerializer(car)

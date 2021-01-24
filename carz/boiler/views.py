@@ -24,21 +24,21 @@ def serve(html):
 @csrf_exempt
 def api_license(request):
     #check if it is a post request
-    testing = False
-    if (testing):
-        car = Car.objects.all().first()
-        car_data = CarSerializer(car)
-        # returns data and slider info for each piece of data
-        return status(True, {**car_data.data, "license": "696969",
-                             "n2o-slider": Data.percent(car.n2o, "n2o"),
-                             "co2-slider": Data.percent(car.co2, "co2"),
-                             "co-slider": Data.percent(car.co, "co")})
+    # testing = False
+    # if (testing):
+    #     car = Car.objects.all().first()
+    #     car_data = CarSerializer(car)
+    #     # returns data and slider info for each piece of data
+    #     return status(True, {**car_data.data, "license": "696969",
+    #                          "n2o-slider": Data.percent(car.n2o, "n2o"),
+    #                          "co2-slider": Data.percent(car.co2, "co2"),
+    #                          "co-slider": Data.percent(car.co, "co")})
 
     if request.method == "POST":
         #determines if user entered license plate and state
         try:
-            lice = request.POST['license']
-            state = request.POST['state']
+            lice = request.POST['license'].upper()
+            state = request.POST['state'].upper()
         except:
             return status(False,"missing required field")   
         #determines if license plate exists

@@ -1,18 +1,32 @@
 function Data(flip) {
-
-    function COGetZ(coval) {
+    var green = '/static/images/curve_green.png'
+    var distcurves = ['/static/images/curve_green.png',
+                    '/static/images/curve_yellow.png',
+                    '/static/images/curve_orange.png',
+                    '/static/images/curve_red.png']
+    var CoZ = flip.getVal
+    colorFromZ(zval) {
+        if (zval < -1) {
+            return 0;
+        } else if (zval < 0) {
+            return 1;
+        } else if (zval < 1) {
+            return 2;
+        } else return 3;
+    }
+    coGetZ(coval) {
         var comean = 0.4156269919438033;
         var cosd = 3.375309575816614;
         return (coval - comean) / cosd;
     }
-    function CO2GetZ(co2val) {
+    co2GetZ(co2val) {
         var co2mean = 345.012823;
         var co2sd = 88.57242028673154;
         return (co2val - co2mean) / co2sd;
     }
 
 
-    function GetZPercent(z) {
+    getZPercent(z) {
        // If z is greater than 6.5 standard deviations from the mean
        // the number of significant digits will be outside of a reasonable
        // range.

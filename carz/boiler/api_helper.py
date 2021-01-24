@@ -22,7 +22,7 @@ def process_img(img):
     license = return_dict['results'][0]['plate']
     state = return_dict['results'][0]['region']['code']
     try:
-        state = state[4:6]
+        state = state[3:6]
         state = state.upper()
     except ValueError:
         # Not in US

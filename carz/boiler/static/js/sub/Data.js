@@ -29,6 +29,34 @@ function Data(flip) {
     var co2Z = co2GetZ(flip.co2);
     var coZ = coGetZ(flip.co);
 
+    function getZPercent(z) {
+       // If z is greater than 6.5 standard deviations from the mean
+       // the number of significant digits will be outside of a reasonable
+       // range.
+       if (z < -6.5)
+         return 0.0;
+
+       if (z > 6.5)
+         return 1.0;
+
+       var factK    = 1;
+       var sum      = 0;
+       var term     = 1;
+       var k        = 0;
+       var loopStop = Math.exp(-23);
+
+       while (Math.abs(term) > loopStop) {
+         term = 0.3989422804 * Math.pow(-1, k) * Math.pow(z, k) / (2 * k + 1) /
+                Math.pow(2, k) * Math.pow(z, k + 1) / factK;
+         sum += term;
+         k++;
+         factK *= k;
+       }
+
+       sum += 0.5;
+
+       return sum;
+    }
 
 
     return (     
@@ -62,14 +90,19 @@ function Data(flip) {
                 <div className = "co2">
                     CO2
                     <div className = "data-value">
-                        {flip.co2}
+                        {(flip.co2).toFixed(4)}
                         <div className = "javadasub">
                             g/m
                         </div>
                     </div>
                 </div>
             </div>
-            <img src = {distcurves[colorFromZ(coZ)]}  className = "not-epic" />
+            <div className = "smh">
+                <img src = {distcurves[colorFromZ(co2Z)]}  className = "not-epic" />
+                <div className = "javadasub">
+                                Higher than {(100*getZPercent(co2Z)).toFixed(2)}% of all cars
+                </div>
+            </div>
         </div>
             }
         {flip.no2 &&
@@ -95,15 +128,19 @@ function Data(flip) {
                 <div className = "co2">
                     CO
                     <div className = "data-value">
-                        {flip.co}
+                        {(flip.co).toFixed(4)}
                         <div className = "javadasub">
                             g/m
                         </div>
                     </div>
                 </div>
             </div>
-            <img src = {distcurves[colorFromZ(co2Z)]}  className = "not-epic" />
-
+            <div className = "smh">
+                <img src = {distcurves[colorFromZ(coZ)]}  className = "not-epic" />
+                <div className = "javadasub">
+                                Higher than {(100*getZPercent(coZ)).toFixed(2)}% of all cars
+                </div>
+            </div>
         </div>
             }
         </div>

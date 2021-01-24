@@ -7,6 +7,16 @@ def status(status,payload):
     return JsonResponse({"status":status,"payload":payload})
 
 
+def process_img(img):
+    # TODO: Submit image to api, then process license and state of image.
+    success = False
+    state = 'IN'
+    license = 0
+    if (success):
+        return process(license, state)
+    else:
+        return False
+
 def process(license, state):
     lister = []
     soup = None

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
-from .api_helper import status,process
+from .api_helper import status,process,process_img
 from django.views.decorators.csrf import csrf_exempt
 from .models import Car, Data
 from .api_models import CarSerializer
@@ -52,4 +52,22 @@ def api_license(request):
         return status(False,"method forbidden")
         
 
+def api_image(request):
+    #check if it is a post request
+    if request.method == "POST":
+        #determines if user entered license plate and state
+        try:
+            image = request.POST['image']
+        except:
+            return status(False,"missing required field")
+        #determines if license plate exists
+        data = process(image)
+        if not data:
+            return status(False,"an error has occured: license plate not found")
+        #submit photo to our current API
+
+
+
+    else:
+        return status(False,"method forbidden")
 

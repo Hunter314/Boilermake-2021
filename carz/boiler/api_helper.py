@@ -1,5 +1,8 @@
+import base64
+
 from django.http import JsonResponse
 import requests
+import json
 from bs4 import BeautifulSoup
 from time import sleep
 
@@ -8,10 +11,27 @@ def status(status,payload):
 
 
 def process_img(img):
-    # TODO: Submit image to api, then process license and state of image.
+    # enc_img = base64.b64encode(img.read())
+    file = {'upload': img}
+
+    r = requests.post('https://api.platerecognizer.com/v1/plate-reader/',
+                      files=file,
+                      headers={"authorization":"Token fa43527529a25e1c6b2cd1670c6ccb74d6e1104e"})
+
+    return_dict = r.json()
+    license = return_dict['results'][0]['plate']
+    state = return_dict['results'][0]['region']['code']
+    try:
+        state = state[4:6]
+        state = state.upper()
+    except ValueError:
+        # Not in US
+        # All US State plates are of the form:
+        # us-XX where XX is the lowercase state abbreviation
+        return False
+    print(r.json())
     success = False
     state = 'IN'
-    license = 0
     if (success):
         return process(license, state)
     else:
